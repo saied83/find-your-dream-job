@@ -1,11 +1,18 @@
-import Navbar from "./components/Navbar/Navbar";
-import "./App.css";
+import Hero from "./components/Hero";
+import HomeCard from "./components/HomeCard";
+import JobListing from "./components/JobListing";
+import Navbar from "./components/Navbar";
+import ViewAllJobs from "./components/ViewAllJobs";
 
 const App = () => {
   return (
-    <div className="bg-slate-50">
+    <>
       <Navbar />
-    </div>
+      <Hero />
+      <HomeCard />
+      <JobListing />
+      <ViewAllJobs />
+    </>
   );
 };
 
