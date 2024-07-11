@@ -1,8 +1,15 @@
+import { useLocation } from "react-router-dom";
 import jobs from "../jobs.json";
 import JobList from "./JobList";
 
 const JobListing = () => {
-  const recentJobs = jobs.slice(0, 3);
+  const location = useLocation();
+  let recentJobs = jobs;
+  if (location.pathname === "/") {
+    recentJobs = jobs.slice(0, 3);
+  }
+  // const recentJobs = jobs.slice(0, 3);
+
   return (
     <section className="bg-blue-50 px-4 py-10">
       <div className="container-xl lg:container m-auto">
