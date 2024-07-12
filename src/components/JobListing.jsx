@@ -1,5 +1,5 @@
-import { useLocation } from "react-router-dom";
-import jobs from "../jobs.json";
+// import { useLocation } from "react-router-dom";
+import jobs from "../db.json";
 import JobList from "./JobList";
 
 const JobListing = ({ isHome = false }) => {
