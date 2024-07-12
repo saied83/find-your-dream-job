@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import JobList from "./JobList";
 import Spinner from "./Spinner";
-import { IoSnow } from "react-icons/io5";
 
 const JobListing = ({ isHome = false }) => {
   const [jobs, setJobs] = useState([]);

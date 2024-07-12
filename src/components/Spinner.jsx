@@ -1,4 +1,3 @@
-import { CgDisplaySpacing } from "react-icons/cg";
 import { ClipLoader } from "react-spinners";
 
 const override = {
