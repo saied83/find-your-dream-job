@@ -13,12 +13,12 @@ const JobList = (props) => {
   return (
     <div key={id} className="bg-white rounded-xl shadow-md relative">
       <div className="p-4">
-        <div className="mb-6 text-black">
+        <div className="mb-6 text-black h-16">
           <div className="text-gray-600 my-2">{type}</div>
           <h3 className="text-xl font-bold">{title}</h3>
         </div>
 
-        <div className="mb-3 text-black">{description}</div>
+        <div className="mb-2 text-black">{description}</div>
         <button
           onClick={() => {
             setShowFullDes((prevState) => !prevState);

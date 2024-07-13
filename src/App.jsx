@@ -11,19 +11,36 @@ import AddJobPage from "./pages/AddJobPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPageSingle, { jobLoader } from "./pages/JobPageSingle";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<MainLayout />}>
-      <Route index element={<HomePage />} />
-      <Route path="/jobs" element={<JobPage />} />
-      <Route path="/jobs/:id" element={<JobPageSingle />} loader={jobLoader} />
-      <Route path="/add-jobs" element={<AddJobPage />} />
-      <Route path="*" element={<NotFoundPage />} />
-    </Route>
-  )
-);
-
 const App = () => {
+  const addJob = async (newJob) => {
+    const res = await fetch("/api/jobs", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newJob),
+    });
+    return;
+  };
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="/jobs" element={<JobPage />} />
+        <Route
+          path="/jobs/:id"
+          element={<JobPageSingle />}
+          loader={jobLoader}
+        />
+        <Route
+          path="/add-jobs"
+          element={<AddJobPage addJobSubmit={addJob} />}
+        />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    )
+  );
   return <RouterProvider router={router}></RouterProvider>;
 };
 
