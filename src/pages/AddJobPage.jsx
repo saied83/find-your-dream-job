@@ -7,7 +7,7 @@ const AddJobPage = ({ addJobSubmit }) => {
   const [type, setType] = useState("Full-Time");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
-  const [salary, setSalary] = useState("");
+  const [salary, setSalary] = useState("Under $50K");
   const [companyName, setCompanyName] = useState("");
   const [companyDescription, setCompanyDescription] = useState("");
   const [contactEmail, setContactEmail] = useState("");
@@ -18,16 +18,15 @@ const AddJobPage = ({ addJobSubmit }) => {
     e.preventDefault();
 
     const newJob = {
-      title,
-      type,
-      location,
-      description,
-      salary,
-      company: {
-        name: companyName,
-        description: companyDescription,
-        contactEmail: contactPhone,
-      },
+      job_title: title,
+      job_type: type,
+      job_location: location,
+      job_description: description,
+      job_salary: salary,
+      c_name: companyName,
+      c_description: companyDescription,
+      c_mail: contactEmail,
+      c_phone: contactPhone,
     };
 
     addJobSubmit(newJob);
@@ -99,6 +98,7 @@ const AddJobPage = ({ addJobSubmit }) => {
                   rows="4"
                   placeholder="Add any job duties, expectations, requirements, etc"
                   value={description}
+                  required
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
@@ -164,6 +164,7 @@ const AddJobPage = ({ addJobSubmit }) => {
                   className="border rounded w-full py-2 px-3"
                   placeholder="Company Name"
                   value={companyName}
+                  required
                   onChange={(e) => setCompanyName(e.target.value)}
                 />
               </div>
@@ -182,6 +183,7 @@ const AddJobPage = ({ addJobSubmit }) => {
                   rows="4"
                   placeholder="What does your company do?"
                   value={companyDescription}
+                  required
                   onChange={(e) => setCompanyDescription(e.target.value)}
                 ></textarea>
               </div>

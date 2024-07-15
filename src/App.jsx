@@ -14,31 +14,31 @@ import EditJobPage from "./pages/EditJobPage";
 
 const App = () => {
   const addJob = async (newJob) => {
-    // await fetch("/api/jobs", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(newJob),
-    // });
+    await fetch("http://localhost:8000/api/v1/jobs/create", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(newJob),
+    });
     return;
   };
 
   const deleteJob = async (id) => {
-    // await fetch(`/api/jobs/${id}`, {
-    //   method: "DELETE",
-    // });
+    await fetch(`http://localhost:8000/api/v1/jobs/delete/${id}`, {
+      method: "DELETE",
+    });
     return;
   };
 
   const updateJob = async (job) => {
-    // await fetch(`/api/jobs/${job.id}`, {
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(job),
-    // });
+    await fetch(`http://localhost:8000/api/v1/jobs/edit/${job.c_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(job),
+    });
     return;
   };
 

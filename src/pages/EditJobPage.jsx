@@ -4,39 +4,39 @@ import { toast } from "react-toastify";
 
 const EditJobPage = ({ updateJobSubmit }) => {
   const job = useLoaderData();
+  console.log(job);
   const navigate = useNavigate();
-  const [title, setTitle] = useState(job.title);
-  const [type, setType] = useState(job.type);
-  const [location, setLocation] = useState(job.location);
-  const [description, setDescription] = useState(job.description);
-  const [salary, setSalary] = useState(job.salary);
-  const [companyName, setCompanyName] = useState(job.company.name);
+  const [title, setTitle] = useState(job.job_title);
+  const [type, setType] = useState(job.job_type);
+  const [location, setLocation] = useState(job.job_location);
+  const [description, setDescription] = useState(job.job_description);
+  const [salary, setSalary] = useState(job.job_salary);
+  const [companyName, setCompanyName] = useState(job.c_name);
   const [companyDescription, setCompanyDescription] = useState(
-    job.company.description
+    job.c_description
   );
-  const [contactEmail, setContactEmail] = useState(job.company.contactEmail);
-  const [contactPhone, setContactPhone] = useState(job.company.contactPhone);
+  const [contactEmail, setContactEmail] = useState(job.c_email);
+  const [contactPhone, setContactPhone] = useState(job.c_phone);
 
   const formSubmit = (e) => {
     e.preventDefault();
 
     const updateJob = {
-      id: job.id,
-      title,
-      type,
-      location,
-      description,
-      salary,
-      company: {
-        name: companyName,
-        description: companyDescription,
-        contactEmail: contactPhone,
-      },
+      c_id: job.c_id,
+      job_title: title,
+      job_type: type,
+      job_location: location,
+      job_description: description,
+      job_salary: salary,
+      c_name: companyName,
+      c_description: companyDescription,
+      c_mail: contactEmail,
+      c_phone: contactPhone,
     };
 
     updateJobSubmit(updateJob);
     toast.success("Job Updated Successfully");
-    return navigate(`/jobs/${job.id}`);
+    return navigate(`/jobs/${job.c_id}`);
   };
   return (
     <section className="bg-indigo-50">

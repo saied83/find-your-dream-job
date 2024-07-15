@@ -8,8 +8,9 @@ const JobListing = ({ isHome = false }) => {
 
   useEffect(() => {
     const fetchJobs = async () => {
-      // const apiUrl = isHome ? "/api/jobs?_limit=3" : "/api/jobs";
-      const apiUrl = "http://localhost:8000/api/jobs";
+      const apiUrl = isHome
+        ? "http://localhost:8000/api/v1/jobs?limit=3"
+        : "http://localhost:8000/api/v1/jobs";
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
@@ -34,7 +35,7 @@ const JobListing = ({ isHome = false }) => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {jobs.map((job) => (
-              <JobList key={job.id} job={job} />
+              <JobList key={job.c_id} job={job} />
             ))}
           </div>
         )}
