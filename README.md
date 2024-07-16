@@ -67,7 +67,7 @@ Login to MySQL
   sudo mysql -u root -p
 ```
 
-Create database named **JobDB** and follow these querry
+Create database named **JobDB** and follow these query
 
 ```bash
   CREATE DATABASES JobDB;
