@@ -6,6 +6,7 @@ const JobPageSingle = ({ deleteJob }) => {
   const job = useLoaderData();
 
   const navigate = useNavigate();
+
   const onDeleteClick = (jobId) => {
     const confirm = window.confirm(
       "Are you Sure you want to delete this listing?"
@@ -14,7 +15,7 @@ const JobPageSingle = ({ deleteJob }) => {
 
     deleteJob(jobId);
     toast.success("Job Deleted Successfully");
-    return navigate("/jobs");
+    navigate("/jobs");
   };
 
   return (
